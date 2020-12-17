@@ -7,14 +7,24 @@ This is a Demo for cross browsers push notifications, implemented message push u
 There are many ways to generate a pair of VAPID keys. You can use `GenerateVAPIDKeys()` providing from [webpush-go](https://github.com/SherClockHolmes/webpush-go) to create a private and public VAPID key pair:
 
 ```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/SherClockHolmes/webpush-go"
+)
+
+func main() {
 	vapidPrivateKey, vapidPublicKey, err := webpush.GenerateVAPIDKeys()
 	if err != nil {
-		// Handle error
-        fmt.Println("Generate VAPID Keys error: ", err)
-        return
-    }
-    fmt.Println("vapid_private_key: ", vapidPrivateKey)
-    fmt.Println("vapid_public_key: ", vapidPublicKey)
+		fmt.Println("Generate VAPID Keys error: ", err)
+		return
+	}
+	fmt.Println("vapid_private_key: ", vapidPrivateKey)
+	fmt.Println("vapid_public_key: ", vapidPublicKey)
+}
+
 ```
 
 ## 2. Access index.html
